@@ -1,0 +1,35 @@
+import{_ as n,g as s}from"./app.89b78ff1.js";const a={},p=s(`<h1 id="vuepress-v2-\u589E\u52A0\u767E\u5EA6\u7EDF\u8BA1" tabindex="-1"><a class="header-anchor" href="#vuepress-v2-\u589E\u52A0\u767E\u5EA6\u7EDF\u8BA1" aria-hidden="true">#</a> vuepress v2 \u589E\u52A0\u767E\u5EA6\u7EDF\u8BA1</h1><h2 id="\u6DFB\u52A0\u767E\u5EA6\u7EDF\u8BA1" tabindex="-1"><a class="header-anchor" href="#\u6DFB\u52A0\u767E\u5EA6\u7EDF\u8BA1" aria-hidden="true">#</a> \u6DFB\u52A0\u767E\u5EA6\u7EDF\u8BA1</h2><p>.vuepress/config.js</p><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code>head<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// \u6DFB\u52A0\u767E\u5EA6\u7EDF\u8BA1</span>
+    <span class="token punctuation">[</span>
+      <span class="token string">&quot;script&quot;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token template-string"><span class="token template-punctuation string">\`</span><span class="token string">
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement(&quot;script&quot;);
+        hm.src = &quot;https://hm.baidu.com/hm.js?\u2026\u2026\u2026\u2026\u2026\u2026&quot;;
+        var s = document.getElementsByTagName(&quot;script&quot;)[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+        </span><span class="token template-punctuation string">\`</span></span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">]</span>
+</code></pre><div class="highlight-lines"><br><br><div class="highlight-line">\xA0</div><div class="highlight-line">\xA0</div><div class="highlight-line">\xA0</div><br><br><br><br><br><br><br><br><br><br><br></div><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h2 id="\u5207\u6362\u9875\u9762\u65F6\u624B\u5DE5\u4E0A\u62A5-pv-\u7EDF\u8BA1" tabindex="-1"><a class="header-anchor" href="#\u5207\u6362\u9875\u9762\u65F6\u624B\u5DE5\u4E0A\u62A5-pv-\u7EDF\u8BA1" aria-hidden="true">#</a> \u5207\u6362\u9875\u9762\u65F6\u624B\u5DE5\u4E0A\u62A5 pv \u7EDF\u8BA1</h2><p>\u521B\u5EFA .vuepress/clientAppEnhance.ts \u6587\u4EF6\uFF1A</p><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> defineClientAppEnhance <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&#39;@vuepress/client&#39;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineClientAppEnhance</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">{</span> app<span class="token punctuation">,</span> router<span class="token punctuation">,</span> siteData <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token doc-comment comment">/**
+     * \u8DEF\u7531\u5207\u6362\u4E8B\u4EF6\u5904\u7406
+     */</span>
+     router<span class="token punctuation">.</span><span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// console.log(&quot;\u5207\u6362\u8DEF\u7531&quot;, to.fullPath, from.fullPath);</span>
+        <span class="token comment">//\u89E6\u53D1\u767E\u5EA6\u7684pv\u7EDF\u8BA1</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> _hmt <span class="token operator">!=</span> <span class="token string">&quot;undefined&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>to<span class="token punctuation">.</span>path<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                _hmt<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&quot;_trackPageview&quot;</span><span class="token punctuation">,</span> to<span class="token punctuation">.</span>fullPath<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// console.log(&quot;\u4E0A\u62A5\u767E\u5EA6\u7EDF\u8BA1&quot;, to.fullPath);</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// continue</span>
+        <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><div class="highlight-lines"><br><br><div class="highlight-line">\xA0</div><div class="highlight-line">\xA0</div><div class="highlight-line">\xA0</div><br><br><br><br><br><br><br><br><br><br><br><br><br></div><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div>`,7);function t(e,c){return p}var l=n(a,[["render",t]]);export{l as default};
